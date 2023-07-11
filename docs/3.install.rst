@@ -1,0 +1,30 @@
+Install use Debian Package
+==========================
+
+.. raw:: html
+
+   <p style="text-align: justify;">
+
+    Recently this apps just available for linux OS version. You can following this guidance to install:
+
+1. Visit the GitHub repository for the latest release version. You can access it `repository here <https://github.com/MoilOrg/Moildev-Applications/releases/tag/v1.0>`_.
+
+2. Once you are on the repository page, navigate to the file directory.
+
+3. Open your terminal application.
+
+4. In the terminal, enter the following command to install the application:
+
+.. code-block:: bash
+
+   $ sudo dpkg -i Moildev.deb
+
+    This command will install the Moildev application on your system.
+
+5. If you want to uninstall the application at a later time, you can use the following command:
+
+.. code-block:: bash
+
+   $ sudo dpkg --purge Moildev
+
+This command will completely remove the Moildev application from your system.
