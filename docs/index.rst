@@ -12,7 +12,11 @@ Welcome to MyProject's documentation!
 
    definition_overview
    getting_installation
-   Operation_moilapp
+   setup_streaming
+   operation_moilapp
+   add_ons_pluginApp
+   create_pluginApp
+   installation_debianpkg
    autodoc
 
 

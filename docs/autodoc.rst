@@ -17,18 +17,26 @@ main module
    :undoc-members:
    :show-inheritance:
 
-openCam
-========
+moilutils
+=========
 
-.. automodule:: OpenCamera
+.. automodule:: moilutils
    :members:
    :undoc-members:
    :show-inheritance:
 
-ratio image
-============
+moilapp controller
+==================
 
-.. automodule:: RatioImage
+.. automodule:: Moilapp_Controller
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+plugin controller
+=================
+
+.. automodule:: plugin_controller
    :members:
    :undoc-members:
    :show-inheritance:
@@ -36,31 +44,23 @@ ratio image
 view anypoint
 =============
 
-.. automodule:: View_Anypoint
+.. automodule:: anypoint
    :members:
    :undoc-members:
    :show-inheritance:
 
 view panorama
-==============
+=============
 
-.. automodule:: View_Panorama
+.. automodule:: panorama
    :members:
    :undoc-members:
    :show-inheritance:
 
-video controller
-=================
+controller view
+===============
 
-.. automodule:: VideoControler
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-view result
-=================
-
-.. automodule:: ShowResult
+.. automodule:: control_view
    :members:
    :undoc-members:
    :show-inheritance:
