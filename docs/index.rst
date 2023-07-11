@@ -11,9 +11,8 @@ Welcome to MyProject's documentation!
    :glob:
 
    definition_overview
-   2.runing
-   3.install
-   operation_moilapp
+   getting_installation
+   Operation_moilapp
    autodoc
 
 

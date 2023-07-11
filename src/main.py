@@ -3,15 +3,10 @@
 # writen by Haryanto
 # email: M07158031@o365.mcut.edu.tw
 #######################################################
-from Ui_Controller import *
-import sys
+from Ui_Controler import *
 
 
 def main():
-    """
-    Create instance Main window to create the mainwindow of Application.
-
-    """
     apps = QtWidgets.QApplication(sys.argv)
     window = Controller()
     window.show()

@@ -2,64 +2,64 @@ from PyQt5 import QtCore, QtGui
 import cv2
 
 
-class Set_RatioImage(object):
-    """To solve the ratio image problem where using the various of camera type.h
-
-    :param parent= MainWindow of User Interface
-    :type parent = QtWidget object
-    """
+class Set_RatioImage:
     def __init__(self, MainWindow):
-        """Constructor Method
-        """
         self.parent = MainWindow
 
-    def resize_original_image(self, image):
-        """resize image for showing on Label original image user interface
-
-        Args:
-            image = original image
-            image = array
-
-        return:
-            Resized image
+    def init_ori_ratio(self):
         """
-        h, w = image.shape[:2]
+        calculate the ratio of original Image
+        """
+        h = self.parent.ui.windowOri.height()
+        w = self.parent.ui.windowOri.width()
+        height, width = self.parent.image.shape[:2]
+        ratio_x = width / w
+        ratio_y = height / h
+        center = (round((w / 2) * ratio_x), round((h / 2) * ratio_y))
+        return ratio_x, ratio_y, center
+
+    def ratioORi(self, imageOri):
+        h, w = imageOri.shape[:2]
         r = 400 / float(w)
         hi = round(h * r)
         self.parent.ui.windowOri.setMinimumSize(QtCore.QSize(400, hi))
         self.parent.ui.labelImagerecenter.setMinimumSize(QtCore.QSize(400, hi))
-        resized_image = cv2.resize(image, (400, hi), interpolation=cv2.INTER_AREA)
-        return resized_image
+        img_ori = cv2.resize(imageOri, (400, hi), interpolation=cv2.INTER_AREA)
+        return img_ori
 
-    def resize_result_image(self, image, width_image):
-        """Resize result image and the label result image based on width given
+    # def ratio3D_Measurement(self, image_1, image_2, width=600):
+    #     h, w = image_1.shape[:2]
+    #     r = width / float(w)
+    #     hi = round(h * r)
+    #     self.parent.ui.label3Dimage1.setMaximumSize(QtCore.QSize(width, hi))
+    #     self.parent.ui.label3Dimage2.setMaximumSize(QtCore.QSize(width, hi))
+    #     img_result_1 = cv2.resize(image_1, (width, hi), interpolation=cv2.INTER_AREA)
+    #     img_result_2 = cv2.resize(image_2, (width, hi), interpolation=cv2.INTER_AREA)
+    #
+    #     return img_result_1, img_result_2
 
-        Args:
-            image = array
-            width_image = integer
+    def ratioImage(self, imageOri, widthSize):
+        h, w = imageOri.shape[:2]
+        r = widthSize / float(w)
+        hi = round(h * r)
+        img_ori = cv2.resize(imageOri, (widthSize, hi), interpolation=cv2.INTER_AREA)
+        return img_ori
 
-        return:
-            Resized image
-        """
-        h, w = image.shape[:2]
-        r = width_image / float(w)
+    def ratioResult(self, imageResult, widthSize):
+        h, w = imageResult.shape[:2]
+        r = widthSize / float(w)
         hi2 = round(h * r)
 
-        self.parent.ui.windowResult.setGeometry(QtCore.QRect(10, 0, width_image, hi2))
-        self.parent.ui.PlussIcon.setGeometry(QtCore.QRect(10, 10, width_image, hi2))
-        if self.parent.ui.btn_Panorama.isChecked():
-            blue = QtGui.QPixmap(width_image, hi2)
-            blue.fill(QtCore.Qt.transparent)
-            self.parent.ui.PlussIcon.setPixmap(blue)
-        else:
-            blue = QtGui.QPixmap(width_image, hi2)
-            blue.fill(QtCore.Qt.transparent)
-            p = QtGui.QPainter(blue)
-            pen = QtGui.QPen(QtGui.QBrush(QtGui.QColor(0, 255, 0)), 3)
-            p.setPen(pen)
-            p.drawLine(round((width_image / 2) - 10), round(hi2 / 2), round((width_image / 2) + 10), round(hi2 / 2))
-            p.drawLine(round(width_image / 2), round((hi2 / 2) - 10), round(width_image / 2), round((hi2 / 2) + 10))
-            p.end()
-            self.parent.ui.PlussIcon.setPixmap(blue)
-        resized_image = cv2.resize(image, (width_image, hi2), interpolation=cv2.INTER_AREA)
-        return resized_image
+        self.parent.ui.windowResult.setGeometry(QtCore.QRect(10, 0, widthSize, hi2))
+        self.parent.ui.PlussIcon.setGeometry(QtCore.QRect(10, 10, widthSize, hi2))
+        blue = QtGui.QPixmap(widthSize, hi2)
+        blue.fill(QtCore.Qt.transparent)
+        p = QtGui.QPainter(blue)
+        pen = QtGui.QPen(QtGui.QBrush(QtGui.QColor(0, 255, 0)), 3)
+        p.setPen(pen)
+        p.drawLine(round((widthSize / 2) - 10), round(hi2 / 2), round((widthSize / 2) + 10), round(hi2 / 2))
+        p.drawLine(round(widthSize / 2), round((hi2 / 2) - 10), round(widthSize / 2), round((hi2 / 2) + 10))
+        p.end()
+        self.parent.ui.PlussIcon.setPixmap(blue)
+        img_result = cv2.resize(imageResult, (widthSize, hi2), interpolation=cv2.INTER_AREA)
+        return img_result

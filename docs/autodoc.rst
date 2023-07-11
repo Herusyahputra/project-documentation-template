@@ -15,11 +15,12 @@ main module
 .. automodule:: main
    :members:
    :undoc-members:
+   :show-inheritance:
 
 openCam
 ========
 
-.. automodule:: OpenCam
+.. automodule:: OpenCamera
    :members:
    :undoc-members:
    :show-inheritance:
@@ -59,7 +60,7 @@ video controller
 view result
 =================
 
-.. automodule:: View_ShowResult
+.. automodule:: ShowResult
    :members:
    :undoc-members:
    :show-inheritance:

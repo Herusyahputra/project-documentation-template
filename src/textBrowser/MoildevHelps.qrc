@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>test.png</file>
+    <file>recognition.png</file>
+    <file>internal2.png</file>
+    <file>center2.png</file>
+    <file>rsz_recognition.jpg</file>
+    <file>main-slam-kitti-map (1).png</file>
+    <file>colonoscopy.png</file>
+    <file>measurement.png</file>
+    <file>Security.jpg</file>
+    <file>objectdetection.png</file>
+    <file>3D_Recons.jpeg</file>
+    <file>car.png</file>
+  </qresource>
+</RCC>

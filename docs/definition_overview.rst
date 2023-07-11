@@ -51,7 +51,7 @@ Definition and Overview
     Whereas the azimuthal angle is defined as the angle of positive Y as the reference point with value 0 degrees and the Z-axis is used as the rotation axis, as shown in figure 3.b.
     the rotation around the optical axis is the angle of the Y axis starting from positive direction and clockwise around the X axis.</p>
 
-.. figure:: assets/zenithal_azimuthal.png
+.. figure:: assets/2.zenithal_azimuthal.png
    :scale: 110 %
    :alt: alternate text
    :align: center
@@ -83,7 +83,7 @@ Definition and Overview
     where in this study camera lens have FoV 220 degree. We set the alpha and beta is 0 then we calculate with our method formula then the fisheye image
     can be expanded to the desired panorama image.</p>
 
-.. figure:: assets/pixel_mapping.png
+.. figure:: assets/3.pixel_mapping.png
    :scale: 120 %
    :alt: alternate text
    :align: center

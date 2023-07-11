@@ -1,58 +1,46 @@
-from OpenCam import Ui_Dialog
+from MoildevUi.OpenCam import Ui_Dialog
 import cv2
 from PyQt5 import QtWidgets
 
 
 class OpenCameras(Ui_Dialog):
-    """This class is to control the window selecting camera.
-    :param MainWindow = Is the parent class window.
-    :type MainWindow = QtWidget of mainWindow UI.
-    :param recentWindow = is the object of this recent window.
-    :type recentWindow = QtDialog inheritance from mainWindow class.
-    """
     def __init__(self, MainWindow, recentWindow):
-        """Constructor method.
-        *this is the way to make the ui can link each other.
-        """
-        super(OpenCameras, self).__init__()
-        self.parent_window = MainWindow
-        self.recent_window = recentWindow
-        self.setupUi(self.recent_window)
+        super().__init__(MainWindow)
+        '''
+         >> Main window is the the inheritance from the main UI this program
+         >> Recent window is the UI for this window. 
+         this make it possible to communication between this two UI
+        '''
+        self.parent_win = MainWindow
+        self.parent_dialog = recentWindow
+        self.setupUi(self.parent_dialog)
         self.videoStreamURL = None
         self.lineEdit_14.setText('http://192.168.100.226:8000/stream.mjpg')
 
-        self.handle_activated_combobox()
-        self.connect_to_button()
+        self.handleActivatedCombobox()
+        self.connectToButton()
 
-    def connect_to_button(self):
-        """This is for connect the button or event with class function.
-        """
-        self.comboBox.activated.connect(self.handle_activated_combobox)
-        self.buttonBox.accepted.connect(self.push_button_ok)
+    def connectToButton(self):
+        self.comboBox.activated.connect(self.handleActivatedCombobox)
+        self.buttonBox.accepted.connect(self.ok)
         self.buttonBox.rejected.connect(self.exit)
-        self.detectPort.clicked.connect(self.check_port_camera)
+        self.detectPort.clicked.connect(self.checkPortCamera)
 
-    def handle_activated_combobox(self):
-        """This function is to handle combo box to select source camera.
-        - if select USB Camera then it will hide the object UI for streaming camera
-        - On the other hand, if you choose a streaming camera, it will hide the component object UI for the USB camera
-        """
+    def handleActivatedCombobox(self):
         if self.comboBox.currentText() == 'USB Camera':
             self.label_59.hide()
             self.lineEdit_14.hide()
             self.framePortUsb.show()
+            # self.parent_win.stop_camera()
 
         else:
+            # self.frame_2.show()
             self.label_59.show()
             self.lineEdit_14.show()
             self.framePortUsb.hide()
+            # self.parent_win.stop_camera()
 
-    def check_port_camera(self):
-        """Check the camera usb that available in computer
-
-        return:
-            will showing the port camera available
-        """
+    def checkPortCamera(self):
         all_camera_idx_available = []
         for camera_idx in range(5):
             cap = cv2.VideoCapture(camera_idx)
@@ -67,31 +55,19 @@ class OpenCameras(Ui_Dialog):
             "Available Port = " + str(all_camera_idx_available))
         msgbox.exec()
 
-    def video_source(self):
-        """To select the video source want to use
-
-        return:
-            videoStreamURL
-        """
+    def vidUrl(self):
         if self.comboBox.currentText() == 'USB Camera':
             self.videoStreamURL = int(self.portCamera.currentText())
         else:
             self.videoStreamURL = self.lineEdit_14.text()
-        return self.videoStreamURL
+        if self.videoStreamURL is None:
+            return None
+        else:
+            return self.videoStreamURL
 
-    def push_button_ok(self):
-        """ to process the final decisions the open camera
-
-        return:
-            execute open camera function
-        """
-        self.parent_window.cameraOpen()
-        self.exit()
+    def ok(self):
+        self.parent_win.cameraOpen()
+        self.parent_dialog.close()
 
     def exit(self):
-        """ Exit open camera window when reject the choice
-
-        return:
-            close the window
-        """
-        self.recent_window.close()
+        self.parent_dialog.close()
