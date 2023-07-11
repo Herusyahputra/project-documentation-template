@@ -1,0 +1,37 @@
+Cam_type: opencv_usb_cam
+Image_saved: {}
+Media_path: /home/heru-002/Downloads/OneDrive_1_5-26-2023/0526_144709.png
+Mode_1:
+  alpha: 0
+  beta: 0
+  coord:
+  - null
+  - null
+  zoom: 4
+Mode_2:
+  coord:
+  - null
+  - null
+  pitch: 0
+  roll: 0
+  yaw: 0
+  zoom: 4
+Pano_car:
+  alpha: 0
+  beta: 0
+  coord:
+  - null
+  - null
+  crop_bottom: 1
+  crop_left: 0
+  crop_right: 1
+  crop_top: 0
+Pano_tube:
+  alpha_max: 110
+  alpha_min: 8
+  crop_bottom: 1
+  crop_top: 0
+Parameter_name: narl_pyspin
+Recenter_coord:
+- null
+- null

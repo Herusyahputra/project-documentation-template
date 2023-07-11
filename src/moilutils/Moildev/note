@@ -1,2 +1,0 @@
-# without opencv
-- c++ -O3 -Wall -shared -std=c++11 -fPIC $(python3 -m pybind11 --includes) MoilCV.cpp -o MoilCV$(python3-config --extension-suffix)

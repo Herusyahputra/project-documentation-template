@@ -12,31 +12,23 @@ The example of the documentation using version and branch maintainer
 main module
 ============
 
-.. automodule:: main
+.. automodule:: src.main
    :members:
    :undoc-members:
    :show-inheritance:
 
-moilutils
-=========
+plugin interface
+================
 
-.. automodule:: moilutils
+.. automodule:: src.plugins
    :members:
    :undoc-members:
    :show-inheritance:
 
-moilapp controller
-==================
+controllers
+===========
 
-.. automodule:: Moilapp_Controller
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-plugin controller
-=================
-
-.. automodule:: plugin_controller
+.. automodule:: src.controllers
    :members:
    :undoc-members:
    :show-inheritance:
@@ -44,23 +36,31 @@ plugin controller
 view anypoint
 =============
 
-.. automodule:: anypoint
+.. automodule:: src.controllers.control_anypoint
    :members:
    :undoc-members:
    :show-inheritance:
 
 view panorama
-=============
+==============
 
-.. automodule:: panorama
+.. automodule:: src.controllers.control_panorama
    :members:
    :undoc-members:
    :show-inheritance:
 
-controller view
-===============
+main module
+===========
 
-.. automodule:: control_view
+.. automodule:: src.models.model_main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+view main moilapp
+=================
+
+.. automodule:: src.views.main_moilapp
    :members:
    :undoc-members:
    :show-inheritance:

@@ -10,13 +10,14 @@ Welcome to MyProject's documentation!
    :maxdepth: 2
    :glob:
 
-   definition_overview
-   getting_installation
-   setup_streaming
-   operation_moilapp
-   add_ons_pluginApp
-   create_pluginApp
-   installation_debianpkg
+   release_note
+   Overview
+   installation_guide
+   contribute
+   api_reference
+   usage
+   plugin_extention
+   troubleshooting_issue
    autodoc
 
 
